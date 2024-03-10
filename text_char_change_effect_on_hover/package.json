@@ -1,0 +1,12 @@
+{
+	"name": "try",
+	"version": "0.0.1",
+	"scripts": {
+	},
+	"devDependencies": {
+	},
+	"type": "module",
+	"dependencies": {
+		"gsap": "^3.12.5"
+	}
+}
