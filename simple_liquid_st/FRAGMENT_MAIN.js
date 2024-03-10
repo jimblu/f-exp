@@ -30,24 +30,22 @@ export const FRAGMENT_MAIN = `
 
         vec3 matcap = texture2D(iChannel1, 0.5 - 0.5 * neo_normal.xy).rgb;
 
+        // display with color filter
         //vec3 baseColor = vec3(1.0, 1.0, 1.0); // Couleur bleue
         //gl_FragColor = vec4(mix(matcap * mix(0.75, 1.5, col.r), baseColor, 0.5), 1.0);
 
-        gl_FragColor = vec4(matcap * mix(0.75, 1.5, col.r), 1.0);
+        // original return
+        //gl_FragColor = vec4(matcap * mix(0.75, 1.5, col.r), 1.0);
+
         //gl_FragColor = texture(tDiffuse, uv);
-    //
 
+        // display only matcap
+        // gl_FragColor = vec4(texture2D(iChannel1, uv).rgb, 1.0) * step(length(uv - 0.5), 0.5);
 
-    //TESTS
-    // matcap = texture2D(iChannel1, 0.5 - 0.5 * neo_normal.xy).rgb;
-    // gl_FragColor = vec4(matcap, 1.0);
-    // gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-    //
+        // display only speed
+        // gl_FragColor = vec4(texture2D(tDiffuse, uv).rgb, 1.0);
 
-    // display only matcap
-    // gl_FragColor = vec4(texture2D(iChannel1, uv).rgb, 1.0) * step(length(uv - 0.5), 0.5);
-
-    // display only speed
-    // gl_FragColor = vec4(texture2D(tDiffuse, uv).rgb, 1.0);
+        
+        gl_FragColor = vec4(matcap, 1.0);
     }
 `;
